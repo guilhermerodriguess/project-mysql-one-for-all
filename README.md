@@ -1,54 +1,55 @@
-# MySQL One for All
+# Project One For All
 
-The MySQL One for All project is a comprehensive solution for managing MySQL databases. It aims to provide a unified platform for performing various operations on MySQL databases efficiently.
+This project involves the revision and consolidation of the main database concepts through the use of a non-normalized table that was normalized and populated for the execution of queries. The project was developed using MySQL, Docker and Node.js.
 
-## Project Objective
+## System requirements
 
-The objective of the MySQL One for All project is to streamline the management of MySQL databases by offering a single platform with a wide range of functionalities. It aims to simplify common tasks and improve productivity for database administrators and developers.
+- Node.js v16 or higher
+- Docker v20.10 or higher
+- Docker Compose v1.29 or higher
 
-## Features
+## Configuring the Project
 
-The MySQL One for All project offers the following features:
+### With Docker
 
-1. Database Creation: Allows users to create new MySQL databases.
-2. Table Management: Provides functionalities to create, modify, and delete tables within a database.
-3. Data Manipulation: Enables the insertion, update, and deletion of data within tables.
-4. Query Execution: Allows users to execute custom SQL queries on the database.
-5. Backup and Restore: Provides options for creating database backups and restoring them when needed.
-6. User Management: Allows administrators to manage MySQL users and their privileges.
-7. Indexing and Optimization: Offers tools to optimize database performance through indexing and query optimization techniques.
-
-## Prerequisites
-
-To run the MySQL One for All project, ensure that you have the following prerequisites installed on your machine:
-
-- MySQL Server: Install and configure a MySQL server on your local or remote machine.
-- Clone the repository:
-
-  ```
-  git clone git@github.com:guilhermerodriguess/project-mysql-one-for-all.git
-  ```
-
-## Usage
-
-Follow these steps to set up and run the MySQL One for All project:
-
-1. Configure MySQL Connection: Update the database connection settings in the project's configuration files to match your MySQL server settings.
-
-2. Install Dependencies: Install the necessary dependencies by running the following command:
-
+1. Run the node and db services with the command:
+   ```bash
+   docker-compose up -d
    ```
+   This will start up two containers called `one_for_all` and `one_for_all_db`.
+
+2. Access the interactive terminal of the `one_for_all` container with the command:
+   ```bash
+   docker exec -it one_for_all bash
+   ```
+3. Inside the container, install the dependencies (if any) with:
+   ```bash
    npm install
    ```
 
-3. Start the Application: Launch the application by executing the following command:
+   **Note:** All commands available in package.json (npm start, npm test, npm run dev, ...) must be executed INSIDE the container.
 
+### Without Docker
+
+1. Install dependencies (if any) with:
+   ```bash
+   npm install
    ```
-   npm start
-   ```
 
-4. Access the Application: Open your web browser and visit the specified URL to access the MySQL One for All application.
+   **Note:** Do not run the `npm audit fix` command. It updates several project dependencies, and this update causes conflicts with the evaluator.
 
-## Conclusion
+## Challenges
 
-The MySQL One for All project provides a comprehensive solution for managing MySQL databases efficiently. With its wide range of features, it simplifies database administration tasks and enhances productivity. If you have any questions or require further assistance, please feel free to reach out.
+The project consists of a series of challenges that involve creating a database called `SpotifyClone`, performing several queries to extract specific information from the database, and manipulating data to obtain metrics and insights. Each challenge has its own set of requirements that are automatically checked.
+
+## Execution of Tests
+
+Tests can be run with the `npm test` command.
+
+## Contribution
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
